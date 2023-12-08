@@ -1,0 +1,19 @@
+# This creates all stuff for the Wordpress-Demo
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-wordpress
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: wordpress-demo
+    server: 'https://kubernetes.default.svc'
+  project: project-patrick
+  source:
+    path: wordpress-helm-chart
+    repoURL: 'https://github.com/Patthecat249/wordpress-demo-testapp-for-openshift.git'
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

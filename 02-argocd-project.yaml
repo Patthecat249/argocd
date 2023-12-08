@@ -1,0 +1,20 @@
+# This creates a new Project and allows only the wordpress-demo-github-Repository
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: project-patrick
+  namespace: openshift-gitops
+spec:
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  destinations:
+    - name: '*'
+      namespace: '*'
+      server: '*'
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  sourceRepos:
+    - 'https://github.com/Patthecat249/wordpress-demo-testapp-for-openshift.git'
+
