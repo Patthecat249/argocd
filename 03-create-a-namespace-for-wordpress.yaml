@@ -1,0 +1,9 @@
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: wordpress-demo
+  labels:
+    # This is necessary that the application-controller can use the service-account to deploy your application in your namespace
+    argocd.argoproj.io/managed-by: openshift-gitops
+    
